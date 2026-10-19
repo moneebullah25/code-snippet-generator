@@ -9,10 +9,14 @@ on:
       - opened
       - synchronize
 
+permissions:
+  contents: read
+
 jobs:
 
   test:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -39,6 +43,7 @@ jobs:
   # https://github.com/marketplace/actions/alls-green#why
   alls-green:  # This job does nothing and is only used for the branch protection
     if: always()
+    timeout-minutes: 5
     needs:
       - test
     runs-on: ubuntu-latest
