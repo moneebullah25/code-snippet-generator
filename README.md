@@ -1,7 +1,14 @@
-# Full Stack FastAPI Template
+# Code Snippet Generator
 
-<a href="https://github.com/tiangolo/full-stack-fastapi-template/actions?query=workflow%3ATest" target="_blank"><img src="https://github.com/tiangolo/full-stack-fastapi-template/workflows/Test/badge.svg" alt="Test"></a>
-<a href="https://coverage-badge.samuelcolvin.workers.dev/redirect/tiangolo/full-stack-fastapi-template" target="_blank"><img src="https://coverage-badge.samuelcolvin.workers.dev/tiangolo/full-stack-fastapi-template.svg" alt="Coverage"></a>
+Full-stack web app (FastAPI + React + PostgreSQL) cloned from the [Full Stack FastAPI Template](https://github.com/tiangolo/full-stack-fastapi-template). The repository currently contains the unmodified template (login, user admin, items CRUD, JWT auth); no snippet-specific features are implemented yet, apart from the login illustration.
+
+![Dashboard after logging in as the seeded superuser](docs/images/demo.png)
+
+*Real capture of the frontend (Vite dev server) logged in as the default superuser against a local backend and PostgreSQL.*
+
+![Interactive API docs](docs/images/api-docs.png)
+
+*Real capture of the FastAPI interactive docs at `/docs`.*
 
 ## Technology Stack and Features
 
@@ -23,33 +30,15 @@
 - 🚢 Deployment instructions using Docker Compose, including how to set up a frontend Traefik proxy to handle automatic HTTPS certificates.
 - 🏭 CI (continuous integration) and CD (continuous deployment) based on GitHub Actions.
 
-### Dashboard Login
+## Quick Start (Docker Compose)
 
-[![API docs](img/login.png)](https://github.com/tiangolo/full-stack-fastapi-template)
+```bash
+docker compose watch
+```
 
-### Dashboard - Admin
+Frontend: http://localhost:5173, API docs: http://localhost:8000/docs. Log in with `FIRST_SUPERUSER` / `FIRST_SUPERUSER_PASSWORD` from `.env`. Change the `changethis` values before any deployment.
 
-[![API docs](img/dashboard.png)](https://github.com/tiangolo/full-stack-fastapi-template)
-
-### Dashboard - Create User
-
-[![API docs](img/dashboard-create.png)](https://github.com/tiangolo/full-stack-fastapi-template)
-
-### Dashboard - Items
-
-[![API docs](img/dashboard-items.png)](https://github.com/tiangolo/full-stack-fastapi-template)
-
-### Dashboard - User Settings
-
-[![API docs](img/dashboard-user-settings.png)](https://github.com/tiangolo/full-stack-fastapi-template)
-
-### Dashboard - Dark Mode
-
-[![API docs](img/dashboard-dark.png)](https://github.com/tiangolo/full-stack-fastapi-template)
-
-### Interactive API Documentation
-
-[![API docs](img/docs.png)](https://github.com/tiangolo/full-stack-fastapi-template)
+Backend checks (needs a PostgreSQL reachable via the `POSTGRES_*` variables): from `backend/`, `mypy app`, `ruff check app`, `ruff format app --check`, `pytest app/tests`. Frontend: from `frontend/`, `npm ci && npm run build`.
 
 ## How To Use It
 
